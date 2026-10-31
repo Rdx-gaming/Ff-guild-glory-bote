@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FF GUILD GLORY BOT</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#080a0f;color:white;
+ font-family:Arial,sans-serif;padding:20px;
+}
+header{text-align:center;padding:25px 5px}
+h1{color:#ff7918;font-size:27px}
+.card{
+ max-width:450px;margin:20px auto;
+ background:#151923;border:1px solid #333;
+ border-radius:16px;padding:22px;
+}
+h2{color:#ff7918;text-align:center}
+label{display:block;margin-top:17px}
+input,select{
+ width:100%;padding:14px;margin-top:8px;
+ border-radius:9px;border:1px solid #414957;
+ background:#090d15;color:white;font-size:16px;
+}
+button{
+ width:100%;padding:15px;margin-top:22px;
+ background:#ff7918;border:0;border-radius:9px;
+ font-weight:bold;font-size:16px;
+}
+#result{
+ margin-top:18px;padding:12px;
+ background:#090d15;border-radius:8px;
+ color:#42e5a0;text-align:center;
+}
+small{color:#9ba5b5;line-height:1.5}
+</style>
+</head>
+<body>
 
+<header>
+<h1>⚡ FF GUILD GLORY BOT</h1>
+<p>GUILD MANAGEMENT SYSTEM</p>
+</header>
+
+<div class="card">
+<h2>PLAYER REQUEST</h2>
+
+<form id="request">
+<label>Player UID</label>
+<input id="uid" type="number"
+placeholder="Enter Player UID" required>
+
+<label>Select Country</label>
+<select id="country">
+<option>India</option>
+<option>Bangladesh</option>
+<option>Nepal</option>
+</select>
+
+<label>Select Bot Slots</label>
+<select id="bots">
+<option>1 Bot</option>
+<option>2 Bots</option>
+<option>3 Bots</option>
+<option>4 Bots</option>
+</select>
+
+<button type="submit">SUBMIT REQUEST</button>
+</form>
+
+<div id="result">Waiting for request...</div>
+</div>
+
+<div class="card">
+<h2>GUILD STATUS</h2>
+<p>Player Requests: <span id="total">0</span></p>
+<p>Request Status: Active</p>
+<small>
+This website manages requests only.
+It does not automatically play matches
+or generate game Glory.
+</small>
+</div>
+
+<script>
+let total=0;
+
+document.getElementById("request")
+.addEventListener("submit",function(e){
+e.preventDefault();
+
+let uid=document.getElementById("uid").value;
+let country=document.getElementById("country").value;
+let bots=document.getElementById("bots").value;
+
+total++;
+document.getElementById("total").textContent=total;
+
+document.getElementById("result").textContent=
+"Request submitted successfully! UID: "+uid+
+" | "+country+" | "+bots;
+
+});
+</script>
+</body>
+  </html>
